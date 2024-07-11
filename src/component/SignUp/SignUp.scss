@@ -68,6 +68,26 @@
                     text-align: center;
                 }
 
+                .d_flex {
+                    @include display(space-between, center);
+                    gap: 10px;
+                    margin-bottom: 12px;
+
+                    .form_group {
+                        input {
+                            width: 100%;
+                        }
+                    }
+                }
+
+                .numnber_otp {
+                    text-align: center;
+                    font-weight: 500;
+                    font-size: 15px;
+
+
+                }
+
                 .form_group {
                     flex-direction: column;
                     display: flex;
@@ -84,6 +104,27 @@
                         border: 1px solid $border_color;
                         outline: none;
                         box-shadow: none;
+                    }
+                }
+
+                .input_otp {
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 20px;
+
+                    input {
+                        width: 3em !important;
+                        border-radius: 6px;
+                        border: 1px solid $border_color;
+                        height: 3em;
+
+                        &:focus-visible {
+                            border: 1px solid $black;
+                        }
+                    }
+
+                    .space {
+                        width: 6px;
                     }
                 }
 

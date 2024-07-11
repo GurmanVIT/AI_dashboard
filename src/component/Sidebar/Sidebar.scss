@@ -1,0 +1,97 @@
+$color_1: #000;
+$background-color_1: #f8f9fa;
+
+/* Sidebar.css */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: $background-color_1;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s;
+    border-radius: 0 20px 20px 0;
+    margin: 15px 0;
+
+    h1 {
+        display: flex;
+        gap: 10px;
+    }
+}
+
+.sidebar.closed {
+    width: 80px;
+
+    .top-section {
+        h1 {
+            display: none;
+        }
+    }
+
+    .nav-menu {
+        ul {
+            li {
+                a {
+                    span {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.top-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.bars {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.nav-menu {
+
+    ul {
+        list-style: none;
+        padding: 0;
+
+        li {
+            padding: 15px 20px;
+
+            a {
+                text-decoration: none;
+                color: $color_1;
+                display: flex;
+                align-items: center;
+
+                .active {
+                    background-color: #007bff;
+                    color: white;
+                }
+
+                span {
+                    margin-left: 10px;
+                    transition: opacity 0.3s;
+
+                    .hidden {
+                        opacity: 0;
+                    }
+                }
+            }
+        }
+    }
+
+    .logout-section {
+        margin-top: auto;
+    }
+}

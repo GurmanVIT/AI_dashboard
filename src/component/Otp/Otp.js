@@ -1,14 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ai_img from '../../assets/img/ai_img.svg';
 import { Button } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import { Link, useNavigate } from 'react-router-dom';
-import google from "../../assets/img/google.svg";
-import facebook from "../../assets/img/facebook.svg";
+import OTPInput from 'react-otp-input';
 
-const SignIn = () => {
+const Otp = () => {
 
-    const navigation = useNavigate();
+    const [otp, setOtp] = useState('');
 
     return (
         <>
@@ -22,27 +20,28 @@ const SignIn = () => {
                 </div>
                 <div className='signup_bg'>
                     <div className='text_btn'>
-                        <h4>Already have an account?</h4>
-                        <Button onClick={() => navigation(-1)}>Sign Up</Button>
+
                     </div>
                     <div className='signup_form'>
                         <Form>
-                            <h3>Sign In</h3>
-                            <Form.Group className="mb-3 form_group" controlId="formBasicEmail">
-                                <Form.Label>Phone Number</Form.Label>
-                                <Form.Control type="number" placeholder="Enter Mobile Number" />
+                            <h3>Enter OTP</h3>
+                            <p className='numnber_otp'>Enter 4-digit code we just texted to your phone number<span><b>+91 9855 6584 991</b></span></p>
+                            <Form.Group className="mb-3 input_otp" controlId="formBasicEmail">
+                                <OTPInput
+                                    value={otp}
+                                    onChange={setOtp}
+                                    numInputs={4}
+                                    renderSeparator={<span className='space'></span>}
+                                    renderInput={(props) => <input {...props} />}
+                                />
                             </Form.Group>
-                            <p>Forgot Account?</p>
                             <div className='next_btn'>
                                 <Button>Sign In</Button>
                             </div>
                             <div class="separator">
                                 <span>or</span>
                             </div>
-                            <div className='goog_fac_btn'>
-                                <Link to="/" class="button facebook"><img src={google} alt='google' /> Google</Link>
-                                <Link to="/" class="button facebook"><img src={facebook} alt='facebook' /> Facebook</Link>
-                            </div>
+                            <p className='numnber_otp'>Resend Code</p>
                         </Form>
                     </div>
 
@@ -53,4 +52,4 @@ const SignIn = () => {
     )
 }
 
-export default SignIn;
+export default Otp;
