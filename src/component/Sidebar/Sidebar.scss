@@ -13,10 +13,12 @@ $background-color_1: #f8f9fa;
     transition: width 0.3s;
     border-radius: 0 20px 20px 0;
     margin: 15px 0;
+    padding: 10px;
 
     h1 {
         display: flex;
         gap: 10px;
+        align-items: center;
     }
 }
 
@@ -50,7 +52,7 @@ $background-color_1: #f8f9fa;
 }
 
 .logo {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: bold;
 }
 
@@ -66,9 +68,9 @@ $background-color_1: #f8f9fa;
         padding: 0;
 
         li {
-            padding: 15px 20px;
 
             a {
+                padding: 13px 15px;
                 text-decoration: none;
                 color: $color_1;
                 display: flex;
@@ -76,7 +78,7 @@ $background-color_1: #f8f9fa;
 
                 .active {
                     background-color: #007bff;
-                    color: white;
+                    color: $white;
                 }
 
                 span {
@@ -89,6 +91,12 @@ $background-color_1: #f8f9fa;
                 }
             }
         }
+    }
+
+    .logout {
+        position: absolute;
+        bottom: 50px;
+        text-align: center;
     }
 
     .logout-section {

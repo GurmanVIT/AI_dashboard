@@ -46,7 +46,7 @@ const CreateProfile = () => {
                                 </Form.Group>
                             </div>
                             <div className='next_btn'>
-                                <Button style={{ marginTop: 10 }}>Sign In</Button>
+                                <Button style={{ marginTop: 10 }}>Submit</Button>
                             </div>
                         </Form>
                     </div>

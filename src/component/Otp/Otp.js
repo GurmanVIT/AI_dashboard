@@ -36,7 +36,7 @@ const Otp = () => {
                                 />
                             </Form.Group>
                             <div className='next_btn'>
-                                <Button>Sign In</Button>
+                                <Button>Submit</Button>
                             </div>
                             <div class="separator">
                                 <span>or</span>

@@ -35,7 +35,7 @@ const SignUp = () => {
                             </Form.Group>
                             <p>Forgot Account?</p>
                             <div className='next_btn'>
-                                <Button>Next</Button>
+                                <Button onClick={() => navigation('Otp')}>Next</Button>
                                 <img src={next_icon} alt='next_icon' />
                             </div>
                             <div class="separator">
