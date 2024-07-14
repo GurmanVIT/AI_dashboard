@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import ai_img from "../../assets/img/ai_img.svg";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
@@ -6,9 +6,27 @@ import { Link, useNavigate } from "react-router-dom";
 import google from "../../assets/img/google.svg";
 import facebook from "../../assets/img/facebook.svg";
 import { GoogleLogin } from "@react-oauth/google";
+import { useDispatch, useSelector } from "react-redux";
+import { signupUser } from "../../redux/signupSlice";
 
 const SignIn = () => {
   const navigation = useNavigate();
+
+  const [phnNumber, setPhnNumber] = useState("");
+
+  const signInResponse = useSelector((state) => state.signupReducer.data);
+
+  const dispatch = useDispatch();
+
+  const onNextClick = () => {
+    const payload = {
+      type: 1,
+      mobileNumber: phnNumber,
+      signUpWithMobileOrEmail: 1,
+    };
+
+    dispatch(signupUser(payload));
+  };
 
   const responseMessage = (response) => {
     console.log(response);
@@ -16,6 +34,13 @@ const SignIn = () => {
   const errorMessage = (error) => {
     console.log(error);
   };
+
+  useEffect(() => {
+    console.log("SignIn Response ===>", signInResponse);
+    if (signInResponse != null && signInResponse.status === 1) {
+      navigation("/Otp");
+    }
+  }, [signInResponse]);
 
   return (
     <>
@@ -43,11 +68,15 @@ const SignIn = () => {
                 controlId="formBasicEmail"
               >
                 <Form.Label>Phone Number</Form.Label>
-                <Form.Control type="number" placeholder="Enter Mobile Number" />
+                <Form.Control
+                  type="number"
+                  placeholder="Enter Mobile Number"
+                  onChange={(v) => setPhnNumber(v.target.value)}
+                />
               </Form.Group>
               <p>Forgot Account?</p>
               <div className="next_btn">
-                <Button>Sign In</Button>
+                <Button onClick={() => onNextClick()}>Sign In</Button>
               </div>
               <div class="separator">
                 <span>or</span>
