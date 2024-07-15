@@ -1,11 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import ai_img from "../../assets/img/ai_img.svg";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import OTPInput from "react-otp-input";
+import { useDispatch, useSelector } from "react-redux";
+import { otpVerification } from "../../redux/OtpSlice";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const Otp = () => {
+const Otp = ({ routes }) => {
   const [otp, setOtp] = useState("");
+  const location = useLocation();
+
+  const navigate = useNavigate();
+
+  const { id } = location.state;
+
+  console.log("ID ===> ", id);
+
+  const dispatch = useDispatch();
+
+  const otpResponse = useSelector((state) => state.otpVerificationReducer.data);
+
+  const onSubmitClick = () => {
+    const payload = {
+      type: 1,
+      _id: id,
+      otp: otp,
+    };
+
+    dispatch(otpVerification(payload));
+  };
+
+  useEffect(() => {
+    console.log("Otp Response ===> ", otpResponse);
+    if (otpResponse != null && otpResponse.status === 1) {
+      navigate("/CreateProject");
+    }
+  }, [otpResponse]);
 
   return (
     <>
@@ -41,7 +72,7 @@ const Otp = () => {
                 />
               </Form.Group>
               <div className="next_btn">
-                <Button>Submit</Button>
+                <Button onClick={() => onSubmitClick()}>Submit</Button>
               </div>
               <div class="separator">
                 <span>or</span>

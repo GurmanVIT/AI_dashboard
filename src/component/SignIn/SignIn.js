@@ -14,6 +14,8 @@ const SignIn = () => {
 
   const [phnNumber, setPhnNumber] = useState("");
 
+  const [id, setId] = useState();
+
   const signInResponse = useSelector((state) => state.signupReducer.data);
 
   const dispatch = useDispatch();
@@ -38,9 +40,20 @@ const SignIn = () => {
   useEffect(() => {
     console.log("SignIn Response ===>", signInResponse);
     if (signInResponse != null && signInResponse.status === 1) {
-      navigation("/Otp");
+      console.log("Data ===> ", signInResponse.data._id);
+      setId(signInResponse.data._id);
+
+      gotoAnotherScreen();
     }
   }, [signInResponse]);
+
+  useEffect(() => {
+    if (id != null) {
+      navigation("/Otp", { state: { id } });
+    }
+  }, [id]);
+
+  const gotoAnotherScreen = () => {};
 
   return (
     <>

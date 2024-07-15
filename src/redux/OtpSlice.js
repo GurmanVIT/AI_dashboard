@@ -10,9 +10,9 @@ export const otpVerification = createAsyncThunk(
       const config = {
         headers: {},
       };
-      console.log("payload otp ===>", payload.type);
+      console.log("payload otp ===>", payload);
 
-      const response = await axios.put(ApiBaseUrl + otp, payload, config);
+      const response = await axios.put(ApiBaseUrl + otpApi, payload, config);
       return response.data;
     } catch (error) {
       throw error.response.data;
