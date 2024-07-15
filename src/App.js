@@ -8,6 +8,8 @@ import Sidebar from "./component/Sidebar/Sidebar";
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import CreateProject from "./component/CreateProject";
+import Home from "./component/Home/Home";
+import YourAi from "./component/YourAi/YourAi";
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
           <Route path="CreateProfile" element={<CreateProfile />} />
           <Route path="Sidebar" element={<Sidebar />} />
           <Route path="CreateProject" element={<CreateProject />} />
+          <Route path="home" element={<Home />} />
+          <Route path="YourAi" element={<YourAi />} />
         </Routes>
       </BrowserRouter>
     </Provider>

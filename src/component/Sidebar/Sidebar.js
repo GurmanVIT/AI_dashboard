@@ -29,12 +29,12 @@ const Sidebar = () => {
                 <nav className="nav-menu">
                     <ul>
                         <li>
-                            <NavLink exact to="/Dashboard" activeClassName="active">
+                            <NavLink to="/" activeClassName="active">
                                 <img src={dashboard_icon} alt='dashboard_icon' /> <span>Dashboard</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/" activeClassName="active">
+                            <NavLink to="/YourAi" activeClassName="active">
                                 <img src={ai_icon} alt='ai_icon' /> <span>Your AI</span>
                             </NavLink>
                         </li>
