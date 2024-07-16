@@ -1,4 +1,8 @@
 import React, { useState } from "react";
+import notification from '../../assets/img/notification.svg';
+import user_icon from '../../assets/img/user_icon.svg';
+import down_icon from '../../assets/img/down_icon.svg';
+import { Button } from "react-bootstrap";
 
 const CreateProject = () => {
   const [formData, setFormData] = useState({
@@ -24,88 +28,114 @@ const CreateProject = () => {
     console.log(formData);
   };
   return (
-    <div className="App">
-      <h1>Form with 7 Input Fields</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>
-            Field 1:
-            <input
-              type="text"
-              name="field1"
-              value={formData.field1}
-              onChange={handleChange}
-            />
-          </label>
+    <div className="sidebar_mar">
+      <div className="header">
+        <div className="user-info">
+          <img src={notification} alt='notification' className="notification-icon" />
+          <img src={user_icon} alt='user_icon' className="user-icon" />
+          <span className="username">username@gmail.com</span>
+          <img src={down_icon} alt='down_icon' className="dropdown-arrow" />
         </div>
-        <div>
-          <label>
-            Field 2:
+      </div>
+      <form onSubmit={handleSubmit}>
+
+        <div className="add_project_style">
+          <h2>Add Projects</h2>
+          <p>General Information</p>
+        </div>
+
+        <div className="two_input_flex">
+          <div className="label_input_flex">
+            <label>
+              Company Name
+            </label>
+
+            <select className="project-select">
+              <option value="">Company Name</option>
+            </select>
+          </div>
+
+          <div className="label_input_flex">
+            <label>
+              Project Name
+            </label>
             <input
               type="text"
-              name="field2"
+              placeholder="Project Name"
               value={formData.field2}
               onChange={handleChange}
             />
-          </label>
+          </div>
         </div>
-        <div>
-          <label>
-            Field 3:
+
+        <div className="two_input_flex">
+          <div className="label_input_flex">
+            <label>
+              Country
+            </label>
+            <select className="project-select">
+              <option value="">Country</option>
+            </select>
+          </div>
+
+          <div className="label_input_flex">
+            <label>
+              City
+            </label>
             <input
               type="text"
-              name="field3"
-              value={formData.field3}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Field 4:
-            <input
-              type="text"
-              name="field4"
+              placeholder="City"
               value={formData.field4}
               onChange={handleChange}
             />
-          </label>
+          </div>
         </div>
-        <div>
-          <label>
-            Field 5:
+
+        <div className="two_input_flex">
+          <div className="label_input_flex">
+            <label>
+              State
+            </label>
+            <select className="project-select">
+              <option value="">State</option>
+            </select>
+          </div>
+
+          <div className="label_input_flex">
+            <label>
+              Street Address
+            </label>
             <input
               type="text"
-              name="field5"
-              value={formData.field5}
-              onChange={handleChange}
-            />
-          </label>
-        </div>
-        <div>
-          <label>
-            Field 6:
-            <input
-              type="text"
-              name="field6"
+              placeholder="Street Address"
               value={formData.field6}
               onChange={handleChange}
             />
-          </label>
+          </div>
         </div>
-        <div>
+
+        <div className="zip_flex">
           <label>
-            Field 7:
-            <input
-              type="text"
-              name="field7"
-              value={formData.field7}
-              onChange={handleChange}
-            />
+            Zip
           </label>
+          <input
+            type="text"
+            placeholder="Zip"
+            value={formData.field7}
+            onChange={handleChange}
+          />
         </div>
-        <button type="submit">Submit</button>
       </form>
+
+      <div className="folder_content">
+        <h4>Project folder associations</h4>
+        <p>Select which project folders data is pulled from for each service you are<span> integrated</span> with.</p>
+      </div>
+
+      <div className="cancel_create_btn">
+        <Button className="cancel_btn">Cancel</Button>
+        <Button className="create_btn">Create Project</Button>
+      </div>
     </div>
   );
 };
