@@ -9,8 +9,6 @@ import copy_icon from '../../assets/img/copy_icon.svg';
 
 function YourAi() {
 
-    const [messages, setMessages] = useState([]);
-
     return (
         <div className="sidebar_mar">
             <div className="header">
@@ -29,7 +27,6 @@ function YourAi() {
                 </select>
             </div>
             <div className="content">
-
                 <div className="conversation">
                     <div className="message" >
                         <div className="message_content">

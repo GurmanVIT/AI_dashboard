@@ -46,7 +46,10 @@
         @include display(center, center);
 
         .conversation {
-            height: 100vh;
+            overflow-y: scroll;
+            padding-bottom: 20px;
+
+
 
             .message {
                 .message_content {
@@ -121,4 +124,8 @@
             }
         }
     }
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
