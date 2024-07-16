@@ -11,6 +11,7 @@ import Documents from "../../assets/img/Documents.svg";
 import logout from "../../assets/img/logout.svg";
 
 const Sidebar = () => {
+
     const [isOpen, setIsOpen] = useState(true);
 
     const toggleSidebar = () => {
@@ -29,7 +30,7 @@ const Sidebar = () => {
                 <nav className="nav-menu">
                     <ul>
                         <li>
-                            <NavLink to="/" activeClassName="active">
+                            <NavLink to="/YourAi" activeClassName="active" >
                                 <img src={dashboard_icon} alt='dashboard_icon' /> <span>Dashboard</span>
                             </NavLink>
                         </li>
@@ -39,17 +40,17 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/" activeClassName="active">
+                            <NavLink to="/YourAi" activeClassName="active">
                                 <img src={Integrations} alt='Integrations' /> <span>Integrations</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/" activeClassName="active">
+                            <NavLink to="/YourAi" activeClassName="active">
                                 <img src={box} alt='box' /> <span>Projects</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/" activeClassName="active">
+                            <NavLink to="/YourAi" activeClassName="active">
                                 <img src={Documents} alt='Documents' /> <span>Documents</span>
                             </NavLink>
                         </li>

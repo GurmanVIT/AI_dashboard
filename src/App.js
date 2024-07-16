@@ -1,5 +1,5 @@
 import "../src/assets/style/Style.scss";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import SignUp from "./component/SignUp/SignUp";
 import SignIn from "./component/SignIn/SignIn";
 import Otp from "./component/Otp/Otp";
@@ -12,6 +12,19 @@ import Home from "./component/Home/Home";
 import YourAi from "./component/YourAi/YourAi";
 
 function App() {
+
+  function SidebarCommon() {
+    return (
+      <>
+        <div className="">
+          <Outlet />
+          <Sidebar />
+        </div>
+      </>
+    );
+  }
+
+
   return (
     <Provider store={store}>
       <BrowserRouter>
@@ -24,6 +37,10 @@ function App() {
           <Route path="CreateProject" element={<CreateProject />} />
           <Route path="home" element={<Home />} />
           <Route path="YourAi" element={<YourAi />} />
+
+
+          <Route element={<SidebarCommon />}>
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>

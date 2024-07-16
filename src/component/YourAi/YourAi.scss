@@ -1,0 +1,124 @@
+.sidebar_mar {
+    padding: 30px 100px;
+
+    .header {
+        .user-info {
+            @include display(flex-end, center);
+            gap: 10px;
+            margin-bottom: 15px;
+
+            span {
+                font-size: 15px;
+                letter-spacing: .3px;
+            }
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+    }
+
+    .sidebar_det {
+        background-color: $page_bg;
+        @include display(space-between, center);
+        padding: 20px 25px;
+        border-radius: 8px;
+        margin-bottom: 25px;
+
+        .active_button {
+            background-color: $page_bg;
+            padding: 8px 18px;
+            border: 1px solid $black;
+            border-radius: 15px;
+        }
+
+        .project-select {
+            padding: 6px;
+            width: 200px;
+            border: 1px solid $forgot;
+            border-radius: 4px;
+            outline: none;
+            font-size: 14px;
+        }
+    }
+
+    .content {
+        @include display(center, center);
+
+        .conversation {
+            height: 100vh;
+
+            .message {
+                .message_content {
+                    text-align: end;
+                    margin-bottom: 10px;
+
+                    .user_chat {
+                        @include display(flex-end, center);
+
+                        p {
+                            text-align: end;
+                            border: 2px solid $page_bg;
+                            padding: 8px 10px;
+                            border-radius: 6px 6px 0 6px;
+                            margin-bottom: 5px;
+                        }
+                    }
+
+                    span {
+                        color: $forgot;
+                        font-size: 14px;
+                    }
+                }
+
+                .message-meta {
+                    @include display(flex-start, flex-start);
+                    flex-direction: column;
+                    gap: 10px;
+
+                    .ai_contents {
+                        background-color: $page_bg;
+                        padding: 15px;
+                        font-size: 15px;
+                        border-radius: 0 8px 8px 8px;
+                    }
+
+                    .day_img {
+                        @include display(space-between, center);
+                        width: 100%;
+
+                        p {
+                            color: $forgot;
+                            font-size: 14px;
+                        }
+                    }
+                }
+            }
+        }
+
+        .input-area {
+            position: fixed;
+            bottom: 50px;
+
+            .add_circle {
+                position: absolute;
+                top: 8px;
+                left: 8px;
+            }
+
+            input {
+                padding: 17px;
+                padding: 20px 70px 20px 70px;
+                border-radius: 50px;
+                outline: none;
+                border: 2px solid $page_bg;
+            }
+
+            .send_icon {
+                position: absolute;
+                top: 8px;
+                right: 8px;
+            }
+        }
+    }
+}
