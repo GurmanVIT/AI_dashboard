@@ -10,6 +10,9 @@ import store from "./redux/store";
 import CreateProject from "./component/CreateProject";
 import Home from "./component/Home/Home";
 import YourAi from "./component/YourAi/YourAi";
+import Project from "./component/Project/Project";
+import About from "./component/About/About";
+import Integrations from "./component/Integrations/Integrations";
 
 function App() {
 
@@ -37,6 +40,9 @@ function App() {
           <Route path="CreateProject" element={<CreateProject />} />
           <Route path="home" element={<Home />} />
           <Route path="YourAi" element={<YourAi />} />
+          <Route path="Project" element={<Project />} />
+          <Route path="About" element={<About />} />
+          <Route path="Integrations" element={<Integrations />} />
 
 
           <Route element={<SidebarCommon />}>
