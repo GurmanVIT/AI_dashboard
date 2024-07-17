@@ -1,44 +1,51 @@
 import React, { useState } from "react";
-import notification from '../../assets/img/notification.svg';
-import user_icon from '../../assets/img/user_icon.svg';
-import down_icon from '../../assets/img/down_icon.svg';
+import notification from "../../assets/img/notification.svg";
+import user_icon from "../../assets/img/user_icon.svg";
+import down_icon from "../../assets/img/down_icon.svg";
 import { Button } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { createProject } from "../../redux/CreateProjectSlice";
 
 const CreateProject = () => {
-  const [formData, setFormData] = useState({
-    field1: "",
-    field2: "",
-    field3: "",
-    field4: "",
-    field5: "",
-    field6: "",
-    field7: "",
-  });
+  const [projectName, setProjectName] = useState("");
+  const [city, setCity] = useState("");
+  const [address, setAddress] = useState("");
+  const [zip, setZip] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [country, setCountry] = useState("");
+  const [state, setState] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  const dispatch = useDispatch();
+
+  const addProject = () => {
+    const payload = {
+      projectName: projectName,
+      companyName: companyName,
+      country: country,
+      city: city,
+      state: state,
+      streetAddress: address,
+      zipCode: zip,
+    };
+
+    dispatch(createProject(payload));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-  };
   return (
     <div className="sidebar_mar">
       <div className="header">
         <div className="user-info">
-          <img src={notification} alt='notification' className="notification-icon" />
-          <img src={user_icon} alt='user_icon' className="user-icon" />
+          <img
+            src={notification}
+            alt="notification"
+            className="notification-icon"
+          />
+          <img src={user_icon} alt="user_icon" className="user-icon" />
           <span className="username">username@gmail.com</span>
-          <img src={down_icon} alt='down_icon' className="dropdown-arrow" />
+          <img src={down_icon} alt="down_icon" className="dropdown-arrow" />
         </div>
       </div>
-      <form onSubmit={handleSubmit}>
-
+      <form>
         <div className="add_project_style">
           <h2>Add Projects</h2>
           <p>General Information</p>
@@ -46,95 +53,101 @@ const CreateProject = () => {
 
         <div className="two_input_flex">
           <div className="label_input_flex">
-            <label>
-              Company Name
-            </label>
+            <label>Company Name</label>
 
-            <select className="project-select">
-              <option value="">Company Name</option>
+            <select
+              className="project-select"
+              onChange={(v) => setCompanyName(v.target.value)}
+            >
+              <option value="X">X</option>
+              <option value="Y">Y</option>
+              <option value="Z">Z</option>
             </select>
           </div>
 
           <div className="label_input_flex">
-            <label>
-              Project Name
-            </label>
+            <label>Project Name</label>
             <input
               type="text"
               placeholder="Project Name"
-              value={formData.field2}
-              onChange={handleChange}
+              value={projectName}
+              onChange={(v) => setProjectName(v.target.value)}
             />
           </div>
         </div>
 
         <div className="two_input_flex">
           <div className="label_input_flex">
-            <label>
-              Country
-            </label>
-            <select className="project-select">
-              <option value="">Country</option>
+            <label>Country</label>
+            <select
+              className="project-select"
+              onChange={(v) => setCountry(v.target.value)}
+            >
+              <option value="Australia">Australia</option>;
+              <option value="America">America</option>;
+              <option value="India">India</option>;
             </select>
           </div>
 
           <div className="label_input_flex">
-            <label>
-              City
-            </label>
+            <label>City</label>
             <input
               type="text"
               placeholder="City"
-              value={formData.field4}
-              onChange={handleChange}
+              value={city}
+              onChange={(v) => setCity(v.target.value)}
             />
           </div>
         </div>
 
         <div className="two_input_flex">
           <div className="label_input_flex">
-            <label>
-              State
-            </label>
-            <select className="project-select">
-              <option value="">State</option>
+            <label>State</label>
+            <select
+              className="project-select"
+              onChange={(v) => setState(v.target.value)}
+            >
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
             </select>
           </div>
 
           <div className="label_input_flex">
-            <label>
-              Street Address
-            </label>
+            <label>Street Address</label>
             <input
               type="text"
               placeholder="Street Address"
-              value={formData.field6}
-              onChange={handleChange}
+              value={address}
+              onChange={(v) => setAddress(v.target.value)}
             />
           </div>
         </div>
 
         <div className="zip_flex">
-          <label>
-            Zip
-          </label>
+          <label>Zip</label>
           <input
             type="text"
             placeholder="Zip"
-            value={formData.field7}
-            onChange={handleChange}
+            value={zip}
+            onChange={(v) => setZip(v.target.value)}
           />
         </div>
       </form>
 
       <div className="folder_content">
         <h4>Project folder associations</h4>
-        <p>Select which project folders data is pulled from for each service you are<span> integrated</span> with.</p>
+        <p>
+          Select which project folders data is pulled from for each service you
+          are<span> integrated</span> with.
+        </p>
       </div>
 
       <div className="cancel_create_btn">
         <Button className="cancel_btn">Cancel</Button>
-        <Button className="create_btn">Create Project</Button>
+        <Button className="create_btn" onClick={() => addProject()}>
+          Create Project
+        </Button>
       </div>
     </div>
   );
