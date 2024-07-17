@@ -4,6 +4,7 @@ import otpVerificationReducer from "./OtpSlice";
 import createProjectReducer from "./CreateProjectSlice";
 import getProjectListReducer from "./GetProjectListSlice";
 import chatHistoryReducer from "./GetChatHistorySlice";
+import askQuestionReducer from "./AskQuestionSlice";
 
 const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ const store = configureStore({
     createProjectReducer: createProjectReducer,
     getProjectListReducer: getProjectListReducer,
     chatHistoryReducer: chatHistoryReducer,
+    askQuestionReducer: askQuestionReducer,
   },
 });
 

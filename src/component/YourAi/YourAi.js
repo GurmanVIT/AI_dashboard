@@ -9,14 +9,19 @@ import copy_icon from "../../assets/img/copy_icon.svg";
 import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getChatHistory } from "../../redux/GetChatHistorySlice";
+import { askQuestion } from "../../redux/AskQuestionSlice";
 
 function YourAi() {
   const location = useLocation();
   const dispatch = useDispatch();
   const { id } = location.state;
   const [chatData, setChatData] = useState([]);
+  const [question, setQuestion] = useState("");
 
   const chatResponse = useSelector((state) => state.chatHistoryReducer.data);
+  const questionResponse = useSelector(
+    (state) => state.askQuestionReducer.data
+  );
 
   useEffect(() => {
     const payload = {
@@ -35,6 +40,23 @@ function YourAi() {
   useEffect(() => {
     console.log("Chat Data =====>", chatData);
   }, [chatData]);
+
+  const onAskQuestion = () => {
+    const payload = {
+      projectId: id,
+      question: question,
+    };
+
+    dispatch(askQuestion(payload));
+  };
+
+  useEffect(() => {
+    console.log("Question Response ===> ", questionResponse);
+    if (questionResponse != null && questionResponse.status == 1) {
+      setChatData([...chatData, questionResponse.data]);
+      setQuestion("");
+    }
+  }, [questionResponse]);
 
   return (
     <div className="sidebar_mar">
@@ -88,8 +110,18 @@ function YourAi() {
 
       <div className="input-area">
         <img src={add_circle} alt="add_circle" className="add_circle" />
-        <input type="text" placeholder="Message for Your Al" />
-        <img src={send_icon} alt="send_icon" className="send_icon" />
+        <input
+          type="text"
+          placeholder="Message for Your Al"
+          value={question}
+          onChange={(v) => setQuestion(v.target.value)}
+        />
+        <img
+          src={send_icon}
+          alt="send_icon"
+          className="send_icon"
+          onClick={() => onAskQuestion()}
+        />
       </div>
     </div>
   );
