@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import notification from "../../assets/img/notification.svg";
 import user_icon from "../../assets/img/user_icon.svg";
 import down_icon from "../../assets/img/down_icon.svg";
 import { Button } from "react-bootstrap";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { createProject } from "../../redux/CreateProjectSlice";
+import { useNavigate } from "react-router-dom";
 
 const CreateProject = () => {
   const [projectName, setProjectName] = useState("");
@@ -14,6 +15,12 @@ const CreateProject = () => {
   const [companyName, setCompanyName] = useState("");
   const [country, setCountry] = useState("");
   const [state, setState] = useState("");
+
+  const navigation = useNavigate();
+
+  const addProjectResponse = useSelector(
+    (state) => state.createProjectReducer.data
+  );
 
   const dispatch = useDispatch();
 
@@ -30,6 +37,12 @@ const CreateProject = () => {
 
     dispatch(createProject(payload));
   };
+
+  useEffect(() => {
+    if (addProjectResponse != null && addProjectResponse.status == 1) {
+      navigation(-1);
+    }
+  }, [addProjectResponse]);
 
   return (
     <div className="sidebar_mar">

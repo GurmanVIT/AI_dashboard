@@ -37,7 +37,7 @@ const Otp = ({ routes }) => {
       console.log("Token ===> ", otpResponse.token);
       localStorage.setItem("token", otpResponse.token);
 
-      navigate("/CreateProject");
+      navigate("/Project");
     }
   }, [otpResponse]);
 
