@@ -3,7 +3,7 @@ import notification from '../../assets/img/notification.svg';
 import user_icon from '../../assets/img/user_icon.svg';
 import down_icon from '../../assets/img/down_icon.svg';
 import { Button } from "react-bootstrap";
-import next_icon from '../../assets/img/next_icon.svg';
+import download_icon from '../../assets/img/download_icon.svg';
 
 const ProjectEdit = () => {
 
@@ -24,34 +24,39 @@ const ProjectEdit = () => {
                 <Button type="button">Edit Project</Button>
             </div>
 
-            <div className="magic_content_btn">
+            <div className="project_edit_content">
                 <div className="label_input_flex">
-                    <h4>Magic Project</h4>
-                    <p>TheAd, 9/89-97 Jones St,
-                        Ultimo NSW 2007, Australia
+                    <h4>7</h4>
+                    <p>Indexed documents
                     </p>
                 </div>
 
                 <div className="label_input_flex">
-                    <h4>Magic Project</h4>
-                    <p>TheAd, 9/89-97 Jones St,
-                        Ultimo NSW 2007, Australia
+                    <h4>2</h4>
+                    <p>Currently indexing documents
                     </p>
                 </div>
 
                 <div className="label_input_flex">
-                    <h4>Magic Project</h4>
-                    <p>TheAd, 9/89-97 Jones St,
-                        Ultimo NSW 2007, Australia
+                    <h4>0</h4>
+                    <p>Failed to index documents
                     </p>
                 </div>
 
                 <div className="label_input_flex">
-                    <h4>Magic Project</h4>
-                    <p>TheAd, 9/89-97 Jones St,
-                        Ultimo NSW 2007, Australia
+                    <h4>05.15.2024</h4>
+                    <p>Document last added
                     </p>
                 </div>
+            </div>
+
+            <div className="download_btn">
+                <img src={download_icon} alt="download_icon" />
+                <p>Drop Documents to upload, or <span>browse</span></p>
+            </div>
+
+            <div className="your_ai_btn">
+                <Button>Go to Your Ai</Button>
             </div>
         </div >
     );

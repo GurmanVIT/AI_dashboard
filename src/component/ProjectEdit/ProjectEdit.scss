@@ -17,4 +17,62 @@
             border: 1px solid $black;
         }
     }
+
+    .project_edit_content {
+        @include display(space-between, center);
+        gap: 10px;
+        padding-bottom: 25px;
+        border: 2px solid $page_bg;
+        margin-top: 25px;
+        padding: 25px 30px;
+        border-radius: 10px;
+        width: 100%;
+
+        .label_input_flex {
+            display: flex;
+            flex-direction: column;
+            width: 50%;
+
+            h4 {
+                margin-bottom: 8px;
+                font-weight: 600;
+                font-size: 20px;
+            }
+
+            p {
+                font-size: 13px;
+                color: $forgot;
+            }
+        }
+    }
+
+    .download_btn {
+        @include display(center, center);
+        gap: 15px;
+        background-color: $page_bg;
+        padding: 40px;
+        color: $forgot;
+        margin-top: 30px;
+        border: 1px solid #DBDBDB;
+        border-radius: 14px;
+
+        p {
+            span {
+                font-weight: bold;
+                color: $black;
+            }
+        }
+    }
+
+    .your_ai_btn {
+        margin: 20px 0;
+
+        button {
+            background-color: $black;
+            color: $white;
+            padding: 10px 20px;
+            border: 1px solid $black;
+            border-radius: 8px;
+        }
+    }
 }

@@ -15,6 +15,7 @@ import About from "./component/About/About";
 import Integrations from "./component/Integrations/Integrations";
 import Documents from "./component/Documents/Documents";
 import ProjectEdit from "./component/ProjectEdit/ProjectEdit";
+import ProfileHeader from "./component/ProfileHeader/ProfileHeader";
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route path="Integrations" element={<Integrations />} />
           <Route path="Documents" element={<Documents />} />
           <Route path="ProjectEdit" element={<ProjectEdit />} />
+          <Route path="ProfileHeader" element={<ProfileHeader />} />
 
 
           <Route element={<SidebarCommon />}>

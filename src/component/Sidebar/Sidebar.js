@@ -23,9 +23,9 @@ const Sidebar = () => {
             <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
                 <div className="top-section">
                     <h1 className="logo"><img src={ai_img} alt='ai_img' />Logotype</h1>
-                    <div className="bars" onClick={toggleSidebar}>
+                    {/* <div className="bars" onClick={toggleSidebar}>
                         {isOpen ? <FaTimes /> : <FaBars />}
-                    </div>
+                    </div> */}
                 </div>
                 <nav className="nav-menu">
                     <ul>
