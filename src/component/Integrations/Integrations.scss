@@ -9,7 +9,7 @@
             padding: 20px;
             border-radius: 10px;
             @include display(space-between, flex-start);
-            gap: 15px;
+            gap: 25px;
             margin-bottom: 20px;
 
             .google_style {
@@ -28,6 +28,7 @@
                 gap: 15px;
 
                 .switch {
+                    margin-left: 10px;
                     width: 50px;
                     height: 25px;
                     background-color: #ccc;

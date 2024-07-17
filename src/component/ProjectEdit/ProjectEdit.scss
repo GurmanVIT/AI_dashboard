@@ -1,0 +1,20 @@
+.sidebar_mar {
+    h2 {
+        margin-top: 40px;
+    }
+
+    .project_btn_styles {
+        @include display(space-between, center);
+        gap: 10px;
+        margin-bottom: 15px;
+        margin-top: 20px;
+
+        button {
+            color: $white;
+            background-color: $black;
+            padding: 10px 22px;
+            border-radius: 8px;
+            border: 1px solid $black;
+        }
+    }
+}

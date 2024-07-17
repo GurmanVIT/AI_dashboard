@@ -4,6 +4,10 @@ import user_icon from '../../assets/img/user_icon.svg';
 import down_icon from '../../assets/img/down_icon.svg';
 import drive_2 from '../../assets/img/drive_2.svg';
 import gmail_2 from '../../assets/img/gmail_2.svg';
+import weather from '../../assets/img/weather.svg';
+import s_icon from '../../assets/img/s_icon.svg';
+import o_icon from '../../assets/img/o_icon.svg';
+import c_icon from '../../assets/img/c_icon.svg';
 
 const Integrations = () => {
 
@@ -29,12 +33,27 @@ const Integrations = () => {
 
                 <div className="google_card">
                     <div className="google_style">
-                        <h4>Google </h4>
+                        <h4>Procore </h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div className="switch_img">
                         <img src={drive_2} alt="drive_2" className="drive_2" />
                         <img src={gmail_2} alt="gmail_2" className="gmail_2" />
+                        <div className={`switch ${isOn ? 'on' : 'off'}`} onClick={toggleSwitch}>
+                            <div className="toggle"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="google_card">
+                    <div className="google_style">
+                        <h4>Google </h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <div className="switch_img">
+                        <img src={weather} alt="weather" className="drive_2" />
+                        <img src={s_icon} alt="s_icon" className="gmail_2" />
+                        <img src={o_icon} alt="o_icon" className="gmail_2" />
                         <div className={`switch ${isOn ? 'on' : 'off'}`} onClick={toggleSwitch}>
                             <div className="toggle"></div>
                         </div>
@@ -47,29 +66,13 @@ const Integrations = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                     <div className="switch_img">
-                        <img src={drive_2} alt="drive_2" className="drive_2" />
-                        <img src={gmail_2} alt="gmail_2" className="gmail_2" />
-                        <div className={`switch ${isOn ? 'on' : 'off'}`} onClick={toggleSwitch}>
-                            <div className="toggle"></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div className="google_card">
-                    <div className="google_style">
-                        <h4>Procore </h4>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    </div>
-                    <div className="switch_img">
-                        <img src={drive_2} alt="drive_2" className="drive_2" />
-                        <img src={gmail_2} alt="gmail_2" className="gmail_2" />
+                        <img src={c_icon} alt="c_icon" className="drive_2" />
                         <div className={`switch ${isOn ? 'on' : 'off'}`} onClick={toggleSwitch}>
                             <div className="toggle"></div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </div >
     );
 };

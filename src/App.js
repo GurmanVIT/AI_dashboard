@@ -13,6 +13,8 @@ import YourAi from "./component/YourAi/YourAi";
 import Project from "./component/Project/Project";
 import About from "./component/About/About";
 import Integrations from "./component/Integrations/Integrations";
+import Documents from "./component/Documents/Documents";
+import ProjectEdit from "./component/ProjectEdit/ProjectEdit";
 
 function App() {
 
@@ -43,6 +45,8 @@ function App() {
           <Route path="Project" element={<Project />} />
           <Route path="About" element={<About />} />
           <Route path="Integrations" element={<Integrations />} />
+          <Route path="Documents" element={<Documents />} />
+          <Route path="ProjectEdit" element={<ProjectEdit />} />
 
 
           <Route element={<SidebarCommon />}>
