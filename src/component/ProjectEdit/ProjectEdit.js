@@ -21,7 +21,7 @@ const ProjectEdit = () => {
             <h2>Projects</h2>
             <div className="project_btn_styles">
                 <h3>Project Name</h3>
-                <Button type="button">Edit Project</Button>
+                <Button type="button" >Edit Project</Button>
             </div>
 
             <div className="project_edit_content">

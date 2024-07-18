@@ -16,6 +16,7 @@ import Integrations from "./component/Integrations/Integrations";
 import Documents from "./component/Documents/Documents";
 import ProjectEdit from "./component/ProjectEdit/ProjectEdit";
 import ProfileHeader from "./component/ProfileHeader/ProfileHeader";
+import ContactUs from "./component/ContactUs/ContactUs";
 
 function App() {
 
@@ -35,23 +36,24 @@ function App() {
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SignUp />} />
-          <Route path="SignIn" element={<SignIn />} />
+          <Route path="/" element={<SignIn />} />
+          <Route path="SignUp" element={<SignUp />} />
           <Route path="Otp" element={<Otp />} />
           <Route path="CreateProfile" element={<CreateProfile />} />
           <Route path="Sidebar" element={<Sidebar />} />
-          <Route path="CreateProject" element={<CreateProject />} />
           <Route path="home" element={<Home />} />
-          <Route path="YourAi" element={<YourAi />} />
-          <Route path="Project" element={<Project />} />
-          <Route path="About" element={<About />} />
-          <Route path="Integrations" element={<Integrations />} />
-          <Route path="Documents" element={<Documents />} />
-          <Route path="ProjectEdit" element={<ProjectEdit />} />
-          <Route path="ProfileHeader" element={<ProfileHeader />} />
 
 
           <Route element={<SidebarCommon />}>
+            <Route path="/Project" element={<Project />} />
+            <Route path="YourAi" element={<YourAi />} />
+            <Route path="CreateProject" element={<CreateProject />} />
+            <Route path="About" element={<About />} />
+            <Route path="Integrations" element={<Integrations />} />
+            <Route path="Documents" element={<Documents />} />
+            <Route path="ProjectEdit" element={<ProjectEdit />} />
+            <Route path="ProfileHeader" element={<ProfileHeader />} />
+            <Route path="ContactUs" element={<ContactUs />} />
           </Route>
         </Routes>
       </BrowserRouter>
