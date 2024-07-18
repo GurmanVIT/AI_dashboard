@@ -10,25 +10,40 @@ import { useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getChatHistory } from "../../redux/GetChatHistorySlice";
 import { askQuestion } from "../../redux/AskQuestionSlice";
+import { getProjectList } from "../../redux/GetProjectListSlice";
 
 function YourAi() {
   const location = useLocation();
   const dispatch = useDispatch();
-  const { id } = location.state;
+  const [projectId, setProjectId] = useState("");
   const [chatData, setChatData] = useState([]);
   const [question, setQuestion] = useState("");
+  const [projectList, setProjectList] = useState([]);
 
   const chatResponse = useSelector((state) => state.chatHistoryReducer.data);
   const questionResponse = useSelector(
     (state) => state.askQuestionReducer.data
   );
 
+  const projectResponse = useSelector(
+    (state) => state.getProjectListReducer.data
+  );
+
   useEffect(() => {
-    const payload = {
-      id: id,
-    };
-    dispatch(getChatHistory(payload));
-  }, [id]);
+    if (location.state != null) {
+      setProjectId(location.state.id);
+    }
+    dispatch(getProjectList());
+  }, []);
+
+  useEffect(() => {
+    if (projectId != "") {
+      const payload = {
+        id: projectId,
+      };
+      dispatch(getChatHistory(payload));
+    }
+  }, [projectId]);
 
   useEffect(() => {
     console.log("History Data ===> ", chatResponse);
@@ -41,9 +56,16 @@ function YourAi() {
     console.log("Chat Data =====>", chatData);
   }, [chatData]);
 
+  useEffect(() => {
+    console.log("Project Response ===> ", projectResponse);
+    if (projectResponse != null && projectResponse.status == 1) {
+      setProjectList(projectResponse.data);
+    }
+  }, [projectResponse]);
+
   const onAskQuestion = () => {
     const payload = {
-      projectId: id,
+      projectId: projectId,
       question: question,
     };
 
@@ -76,7 +98,9 @@ function YourAi() {
       <div className="sidebar_det">
         <button className="active_button">Active</button>
         <select className="project-select">
-          <option value="">Select Project</option>
+          {projectList.map((project) => (
+            <option value={project.projectName}>{project.projectName}</option>
+          ))}
         </select>
       </div>
 
