@@ -5,22 +5,41 @@ import Form from "react-bootstrap/Form";
 import { Link, useNavigate } from "react-router-dom";
 import google from "../../assets/img/google.svg";
 import facebook from "../../assets/img/facebook.svg";
-import { GoogleLogin } from "@react-oauth/google";
+import { GoogleLogin, useGoogleLogin } from "@react-oauth/google";
 import { useDispatch, useSelector } from "react-redux";
-import { signupUser } from "../../redux/signupSlice";
+import { clearDataSignUp, signupUser } from "../../redux/signupSlice";
+import {
+  clearGoogleLoginData,
+  googleLogin,
+} from "../../redux/GoogleSignInSlice";
 
 const SignIn = () => {
   const navigation = useNavigate();
 
   const [phnNumber, setPhnNumber] = useState("");
+  var from = 0;
 
   const [id, setId] = useState();
 
   const signInResponse = useSelector((state) => state.signupReducer.data);
+  const googleLoginResponse = useSelector(
+    (state) => state.googleLoginReducer.data
+  );
 
   const dispatch = useDispatch();
 
+  const login = useGoogleLogin({
+    onSuccess: (tokenResponse) => {
+      from = 1;
+      const payload = {
+        googleId: tokenResponse.access_token,
+      };
+      dispatch(googleLogin(payload));
+    },
+  });
+
   const onNextClick = () => {
+    from = 0;
     const payload = {
       type: 1,
       mobileNumber: phnNumber,
@@ -46,10 +65,26 @@ const SignIn = () => {
       gotoAnotherScreen();
     }
   }, [signInResponse]);
+  useEffect(() => {
+    console.log("SignIn Response ===>", signInResponse);
+    if (googleLoginResponse != null && googleLoginResponse.status === 1) {
+      console.log("Data ===> ", googleLoginResponse.data._id);
+      localStorage.setItem("token", googleLoginResponse.token);
+      setId(googleLoginResponse.data._id);
+    }
+  }, [googleLoginResponse]);
 
   useEffect(() => {
     if (id != null) {
-      navigation("/Otp", { state: { id } });
+      if ((from = 0)) {
+        console.log("otp");
+        navigation("/Otp", { state: { id } });
+        dispatch(clearDataSignUp());
+      } else {
+        console.log("google======>");
+        navigation("/Project");
+        dispatch(clearGoogleLoginData());
+      }
     }
   }, [id]);
 
@@ -95,13 +130,13 @@ const SignIn = () => {
                 <span>or</span>
               </div>
               <div className="goog_fac_btn">
-                <GoogleLogin
+                {/* <GoogleLogin
                   onSuccess={responseMessage}
                   onError={errorMessage}
-                />
-                {/* <Link to="/" class="button facebook">
+                /> */}
+                <div to="/" class="button facebook" onClick={() => login()}>
                   <img src={google} alt="google" /> Google
-                </Link> */}
+                </div>
                 <Link to="/" class="button facebook">
                   <img src={facebook} alt="facebook" /> Facebook
                 </Link>

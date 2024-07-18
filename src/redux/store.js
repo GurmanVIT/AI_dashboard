@@ -5,6 +5,7 @@ import createProjectReducer from "./CreateProjectSlice";
 import getProjectListReducer from "./GetProjectListSlice";
 import chatHistoryReducer from "./GetChatHistorySlice";
 import askQuestionReducer from "./AskQuestionSlice";
+import googleLoginReducer from "./GoogleSignInSlice";
 
 const store = configureStore({
   reducer: {
@@ -14,6 +15,7 @@ const store = configureStore({
     getProjectListReducer: getProjectListReducer,
     chatHistoryReducer: chatHistoryReducer,
     askQuestionReducer: askQuestionReducer,
+    googleLoginReducer: googleLoginReducer,
   },
 });
 
