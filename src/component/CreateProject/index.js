@@ -8,6 +8,7 @@ import { createProject } from "../../redux/CreateProjectSlice";
 import { useNavigate } from "react-router-dom";
 
 const CreateProject = () => {
+
   const [projectName, setProjectName] = useState("");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
@@ -53,7 +54,7 @@ const CreateProject = () => {
             alt="notification"
             className="notification-icon"
           />
-          <img src={user_icon} alt="user_icon" className="user-icon" />
+          <img src={user_icon} alt="user_icon" className="user-icon" onClick={() => navigation('/ProfileHeader')} />
           <span className="username">username@gmail.com</span>
           <img src={down_icon} alt="down_icon" className="dropdown-arrow" />
         </div>
