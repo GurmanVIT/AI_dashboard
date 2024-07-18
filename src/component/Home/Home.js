@@ -237,8 +237,6 @@ function Home() {
                             </div>
                         </section>
                     </main>
-
-
                 </div >
             </div >
             <footer className="footer">
