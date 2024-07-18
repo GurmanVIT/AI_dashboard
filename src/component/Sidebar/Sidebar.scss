@@ -1,12 +1,10 @@
 $color_1: #000;
 $background-color_1: #f8f9fa;
 
-/* Sidebar.css */
 .sidebar {
     position: fixed;
     top: 0;
     left: 0;
-    width: 250px;
     height: 100%;
     background-color: $background-color_1;
     box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
@@ -20,6 +18,10 @@ $background-color_1: #f8f9fa;
         gap: 10px;
         align-items: center;
     }
+}
+
+.open {
+    width: 250px;
 }
 
 .sidebar.closed {
