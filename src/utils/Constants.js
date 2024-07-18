@@ -9,3 +9,4 @@ export const createProjectApi = "/v1/user/addProject";
 export const getProjectListApi = "/v1/user/getProjectList";
 export const getChatHistoryApi = "/v1/user/getChatHistory";
 export const askQuestionApi = "/v1/user/askQuestion";
+export const googleLoginApi = "/v1/user/signUpGoogle";

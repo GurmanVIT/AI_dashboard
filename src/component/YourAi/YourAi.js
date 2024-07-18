@@ -19,6 +19,7 @@ function YourAi() {
   const [chatData, setChatData] = useState([]);
   const [question, setQuestion] = useState("");
   const [projectList, setProjectList] = useState([]);
+  const [projectName, setProjectName] = useState([]);
 
   const chatResponse = useSelector((state) => state.chatHistoryReducer.data);
   const questionResponse = useSelector(
@@ -35,6 +36,16 @@ function YourAi() {
     }
     dispatch(getProjectList());
   }, []);
+
+  useEffect(() => {
+    console.log("Project Response ===> ", projectResponse);
+    if (projectResponse != null && projectResponse.status == 1) {
+      setProjectList(projectResponse.data);
+      if (projectId == "") {
+        setProjectId(projectResponse.data[0]._id);
+      }
+    }
+  }, [projectResponse]);
 
   useEffect(() => {
     if (projectId != "") {
@@ -56,13 +67,6 @@ function YourAi() {
     console.log("Chat Data =====>", chatData);
   }, [chatData]);
 
-  useEffect(() => {
-    console.log("Project Response ===> ", projectResponse);
-    if (projectResponse != null && projectResponse.status == 1) {
-      setProjectList(projectResponse.data);
-    }
-  }, [projectResponse]);
-
   const onAskQuestion = () => {
     const payload = {
       projectId: projectId,
@@ -80,6 +84,10 @@ function YourAi() {
     }
   }, [questionResponse]);
 
+  const onProjectSelect = (project) => {
+    setProjectId(project._id);
+  };
+
   return (
     <div className="sidebar_mar">
       <div className="header">
@@ -93,46 +101,49 @@ function YourAi() {
           <span className="username">username@gmail.com</span>
           <img src={down_icon} alt="down_icon" className="dropdown-arrow" />
         </div>
-        <h2 className="margin_top">Your Al</h2>
+        <h2>Your Al</h2>
       </div>
       <div className="sidebar_det">
         <button className="active_button">Active</button>
         <select className="project-select">
           {projectList.map((project) => (
-            <option value={project.projectName}>{project.projectName}</option>
+            <option
+              value={project.projectName}
+              onClick={() => onProjectSelect(project)}
+            >
+              {project.projectName}
+            </option>
           ))}
         </select>
       </div>
 
-      <div className="scroll_content">
-        {chatData.length > 0 &&
-          chatData.map((message) => (
-            <div className="content">
-              <div className="conversation">
-                <div className="message">
-                  <div className="message_content">
-                    <div className="user_chat">
-                      <p>{message.request}</p>
-                    </div>
-                    {/* <span>3 days ago</span> */}
+      {chatData.length > 0 &&
+        chatData.map((message) => (
+          <div className="content">
+            <div className="conversation">
+              <div className="message">
+                <div className="message_content">
+                  <div className="user_chat">
+                    <p>{message.request}</p>
                   </div>
-                  <div className="message-meta">
-                    <img
-                      src={ai_icon_new}
-                      alt="ai_icon_new"
-                      className="ai_icon_new"
-                    />
-                    <span className="ai_contents">{message.response}</span>
-                    <div className="day_img">
-                      {/* <p>3 days ago</p> */}
-                      <img src={copy_icon} alt="copy_icon" />
-                    </div>
+                  {/* <span>3 days ago</span> */}
+                </div>
+                <div className="message-meta">
+                  <img
+                    src={ai_icon_new}
+                    alt="ai_icon_new"
+                    className="ai_icon_new"
+                  />
+                  <span className="ai_contents">{message.response}</span>
+                  <div className="day_img">
+                    {/* <p>3 days ago</p> */}
+                    <img src={copy_icon} alt="copy_icon" />
                   </div>
                 </div>
               </div>
             </div>
-          ))}
-      </div>
+          </div>
+        ))}
 
       <div className="input-area">
         <img src={add_circle} alt="add_circle" className="add_circle" />
