@@ -1,5 +1,5 @@
 .sidebar_mar {
-    padding: 30px 100px;
+    padding: 30px 30px 30px 290px;
 
     .header {
         .user-info {
@@ -16,6 +16,10 @@
         h2 {
             margin-bottom: 20px;
         }
+
+        .margin_top {
+            margin-top: 20px;
+        }
     }
 
     .sidebar_det {
@@ -23,7 +27,7 @@
         @include display(space-between, center);
         padding: 20px 25px;
         border-radius: 8px;
-        margin-bottom: 25px;
+        margin-bottom: 20px;
 
         .active_button {
             background-color: $page_bg;
@@ -42,86 +46,89 @@
         }
     }
 
-    .content {
-        @include display(center, center);
+    .scroll_content {
+        overflow-y: scroll;
+        height: 260px;
 
-        .conversation {
-            overflow-y: scroll;
-            padding-bottom: 20px;
+        .content {
+            @include display(center, center);
 
+            .conversation {
+                padding-bottom: 20px;
+                width: 100%;
 
+                .message {
+                    .message_content {
+                        text-align: end;
+                        margin-bottom: 10px;
 
-            .message {
-                .message_content {
-                    text-align: end;
-                    margin-bottom: 10px;
+                        .user_chat {
+                            @include display(flex-end, center);
 
-                    .user_chat {
-                        @include display(flex-end, center);
+                            p {
+                                text-align: end;
+                                border: 2px solid $page_bg;
+                                padding: 8px 10px;
+                                border-radius: 6px 6px 0 6px;
+                                margin-bottom: 5px;
+                            }
+                        }
 
-                        p {
-                            text-align: end;
-                            border: 2px solid $page_bg;
-                            padding: 8px 10px;
-                            border-radius: 6px 6px 0 6px;
-                            margin-bottom: 5px;
+                        span {
+                            color: $forgot;
+                            font-size: 14px;
                         }
                     }
 
-                    span {
-                        color: $forgot;
-                        font-size: 14px;
-                    }
-                }
+                    .message-meta {
+                        @include display(flex-start, flex-start);
+                        flex-direction: column;
+                        gap: 10px;
 
-                .message-meta {
-                    @include display(flex-start, flex-start);
-                    flex-direction: column;
-                    gap: 10px;
+                        .ai_contents {
+                            background-color: $page_bg;
+                            padding: 15px;
+                            font-size: 15px;
+                            border-radius: 0 8px 8px 8px;
+                        }
 
-                    .ai_contents {
-                        background-color: $page_bg;
-                        padding: 15px;
-                        font-size: 15px;
-                        border-radius: 0 8px 8px 8px;
-                    }
+                        .day_img {
+                            @include display(flex-end, center);
+                            width: 100%;
 
-                    .day_img {
-                        @include display(space-between, center);
-                        width: 100%;
-
-                        p {
-                            color: $forgot;
-                            font-size: 14px;
+                            p {
+                                color: $forgot;
+                                font-size: 14px;
+                            }
                         }
                     }
                 }
             }
         }
+    }
 
-        .input-area {
-            position: fixed;
-            bottom: 50px;
+    .input-area {
+        position: fixed;
+        bottom: 50px;
+        left: 50%;
 
-            .add_circle {
-                position: absolute;
-                top: 8px;
-                left: 8px;
-            }
+        .add_circle {
+            position: absolute;
+            top: 8px;
+            left: 8px;
+        }
 
-            input {
-                padding: 17px;
-                padding: 20px 70px 20px 70px;
-                border-radius: 50px;
-                outline: none;
-                border: 2px solid $page_bg;
-            }
+        input {
+            padding: 20px 70px 20px 70px;
+            border-radius: 50px;
+            outline: none;
+            border: 2px solid $page_bg;
+        }
 
-            .send_icon {
-                position: absolute;
-                top: 8px;
-                right: 8px;
-            }
+        .send_icon {
+            position: absolute;
+            top: 8px;
+            right: 8px;
         }
     }
 }

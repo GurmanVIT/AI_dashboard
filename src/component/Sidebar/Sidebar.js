@@ -23,14 +23,14 @@ const Sidebar = () => {
             <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
                 <div className="top-section">
                     <h1 className="logo"><img src={ai_img} alt='ai_img' />Logotype</h1>
-                    <div className="bars" onClick={toggleSidebar}>
+                    {/* <div className="bars" onClick={toggleSidebar}>
                         {isOpen ? <FaTimes /> : <FaBars />}
-                    </div>
+                    </div> */}
                 </div>
                 <nav className="nav-menu">
                     <ul>
                         <li>
-                            <NavLink to="/YourAi" activeClassName="active" >
+                            <NavLink to="/ProjectEdit" activeClassName="active" >
                                 <img src={dashboard_icon} alt='dashboard_icon' /> <span>Dashboard</span>
                             </NavLink>
                         </li>
@@ -40,17 +40,17 @@ const Sidebar = () => {
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/YourAi" activeClassName="active">
+                            <NavLink to="/Integrations" activeClassName="active">
                                 <img src={Integrations} alt='Integrations' /> <span>Integrations</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/YourAi" activeClassName="active">
+                            <NavLink to="/Project" activeClassName="active">
                                 <img src={box} alt='box' /> <span>Projects</span>
                             </NavLink>
                         </li>
                         <li>
-                            <NavLink to="/YourAi" activeClassName="active">
+                            <NavLink to="/Documents" activeClassName="active">
                                 <img src={Documents} alt='Documents' /> <span>Documents</span>
                             </NavLink>
                         </li>
