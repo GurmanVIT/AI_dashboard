@@ -8,9 +8,11 @@ import weather from '../../assets/img/weather.svg';
 import s_icon from '../../assets/img/s_icon.svg';
 import o_icon from '../../assets/img/o_icon.svg';
 import c_icon from '../../assets/img/c_icon.svg';
+import { useNavigate } from "react-router-dom";
 
 const Integrations = () => {
 
+    const navigation = useNavigate();
     const [isOn, setIsOn] = useState(false);
 
     const toggleSwitch = () => {
@@ -22,7 +24,7 @@ const Integrations = () => {
             <div className="header">
                 <div className="user-info">
                     <img src={notification} alt='notification' className="notification-icon" />
-                    <img src={user_icon} alt='user_icon' className="user-icon" />
+                    <img src={user_icon} alt='user_icon' className="user-icon" onClick={() => navigation('/ProfileHeader')} />
                     <span className="username">username@gmail.com</span>
                     <img src={down_icon} alt='down_icon' className="dropdown-arrow" />
                 </div>

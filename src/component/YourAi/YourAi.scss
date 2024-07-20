@@ -48,7 +48,7 @@
 
     .scroll_content {
         overflow-y: scroll;
-        height: 260px;
+        height: 280px;
 
         .content {
             @include display(center, center);
@@ -110,7 +110,7 @@
 
     .input-area {
         position: fixed;
-        bottom: 50px;
+        bottom: 20px;
         left: 50%;
 
         .add_circle {

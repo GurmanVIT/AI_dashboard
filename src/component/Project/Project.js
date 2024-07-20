@@ -54,7 +54,7 @@ const Project = () => {
             alt="notification"
             className="notification-icon"
           />
-          <img src={user_icon} alt="user_icon" className="user-icon" />
+          <img src={user_icon} alt="user_icon" className="user-icon" onClick={() => navigation('/ProfileHeader')} />
           <span className="username">username@gmail.com</span>
           <img src={down_icon} alt="down_icon" className="dropdown-arrow" />
         </div>
