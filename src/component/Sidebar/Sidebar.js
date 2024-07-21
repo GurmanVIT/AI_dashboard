@@ -43,7 +43,7 @@ const Sidebar = () => {
         <nav className="nav-menu">
           <ul>
             <li>
-              <NavLink to="/ProjectEdit" activeClassName="active">
+              <NavLink to="/Dashboard" activeClassName="active">
                 <img src={dashboard_icon} alt="dashboard_icon" />{" "}
                 <span>Dashboard</span>
               </NavLink>

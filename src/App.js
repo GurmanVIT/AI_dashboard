@@ -45,7 +45,7 @@ function App() {
 
 
           <Route element={<SidebarCommon />}>
-            <Route path="ProjectEdit" element={<ProjectEdit />} />
+            <Route path="/Dashboard" element={<ProjectEdit />} />
             <Route path="YourAi" element={<YourAi />} />
             <Route path="Integrations" element={<Integrations />} />
             <Route path="Project" element={<Project />} />
