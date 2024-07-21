@@ -88,7 +88,7 @@ const SignIn = () => {
     }
   }, [id]);
 
-  const gotoAnotherScreen = () => {};
+  const gotoAnotherScreen = () => { };
 
   return (
     <>
@@ -106,7 +106,7 @@ const SignIn = () => {
         <div className="signup_bg">
           <div className="text_btn">
             <h4>Already have an account?</h4>
-            <Button onClick={() => navigation(-1)}>Sign Up</Button>
+            <Button onClick={() => navigation('/SignUp')}>Sign Up</Button>
           </div>
           <div className="signup_form">
             <Form>
@@ -122,7 +122,7 @@ const SignIn = () => {
                   onChange={(v) => setPhnNumber(v.target.value)}
                 />
               </Form.Group>
-              <p>Forgot Account?</p>
+              {/* <p>Forgot Account?</p> */}
               <div className="next_btn">
                 <Button onClick={() => onNextClick()}>Sign In</Button>
               </div>

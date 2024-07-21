@@ -41,7 +41,7 @@ const SignUp = () => {
         <div className="signup_bg">
           <div className="text_btn">
             <h4>Already have an account?</h4>
-            <Button onClick={() => navigation("SignIn")}>Sign In</Button>
+            <Button onClick={() => navigation(-1)}>Sign In</Button>
           </div>
           <div className="signup_form">
             <Form>
@@ -57,9 +57,9 @@ const SignUp = () => {
                   onChange={(v) => setPhnNumber(v.target.value)}
                 />
               </Form.Group>
-              <p>Forgot Account?</p>
+              {/* <p>Forgot Account?</p> */}
               <div className="next_btn">
-                <Button onClick={() => navigation("Otp")}>Next</Button>
+                <Button onClick={() => { navigation() }}>Next</Button>
                 <img src={next_icon} alt="next_icon" />
               </div>
               <div class="separator">

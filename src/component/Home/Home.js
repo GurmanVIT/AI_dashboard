@@ -12,7 +12,6 @@ import Custom from "../../assets/img/Custom.svg";
 import frame from "../../assets/img/frame.svg";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-// import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 import "swiper/css/free-mode";
@@ -36,7 +35,7 @@ function Home() {
                                 Logotype</div>
                             <div className="nav-links">
                                 <Link to="#">News</Link>
-                                <Link to="/SignIp" className='start_btn'>Log In</Link>
+                                <Link to="SignIn" className='start_btn'>Log In</Link>
                             </div>
                         </nav>
                     </header>
