@@ -20,6 +20,7 @@ import facebook_black from "../../assets/img/facebook_black.svg";
 import instagram from "../../assets/img/instagram.svg";
 import twitter from "../../assets/img/twitter.svg";
 import linkedin from "../../assets/img/linkedin.svg";
+import your_ai_web from "../../assets/img/your_ai_web.svg";
 
 
 function Home() {
@@ -30,9 +31,7 @@ function Home() {
                 <div className='coustom_container'>
                     <header className="App-header">
                         <nav className="navbar">
-                            <div className="logo">
-                                <img src={ai_img} alt='ai_img' />
-                                Logotype</div>
+                            <img src={your_ai_web} alt='your_ai_web' />
                             <div className="nav-links">
                                 <Link to="#">News</Link>
                                 <Link to="SignIn" className='start_btn'>Log In</Link>

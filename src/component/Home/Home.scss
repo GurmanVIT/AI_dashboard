@@ -12,30 +12,20 @@ $background-color_1: #f8f9fa;
     @include display(space-between, center);
     padding: 20px 0;
 
-    @media($breakpoint_SM) {
-        padding: 14px 0;
-    }
+    img {
+        width: 17%;
+        filter: invert(1);
 
-    .logo {
-        @include display(center, center);
-        gap: 10px;
+        @media($breakpoint_MD) {
+            width: 20%;
+        }
 
-        @media($breakpoint_450) {
-            font-size: 20px;
+        @media($breakpoint_SM) {
+            width: 27%;
         }
 
         @media($breakpoint_ESM) {
-            font-size: 18px;
-        }
-
-        img {
-            @media($breakpoint_450) {
-                width: 35px;
-            }
-
-            @media($breakpoint_ESM) {
-                width: 30px;
-            }
+            width: 35%;
         }
     }
 }
@@ -197,6 +187,9 @@ $background-color_1: #f8f9fa;
 }
 
 .hero-image {
+    @media($breakpoint_MD) {
+        @include display(center, center);
+    }
 
     img {
         max-width: 100%;
