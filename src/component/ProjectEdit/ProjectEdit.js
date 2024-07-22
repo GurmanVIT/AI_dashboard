@@ -59,7 +59,7 @@ const ProjectEdit = () => {
             </div>
 
             <div className="your_ai_btn">
-                <Button>Go to Your Ai</Button>
+                <Button onClick={() => navigation('/YourAi')}>Go to Your Ai</Button>
             </div>
         </div >
     );

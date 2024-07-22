@@ -99,6 +99,14 @@ $background-color_1: #f8f9fa;
         position: absolute;
         bottom: 50px;
         text-align: center;
+
+        .logout_div {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 15px;
+        }
     }
 
     .logout-section {

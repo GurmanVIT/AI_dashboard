@@ -48,5 +48,5 @@ const otpVerificationSlice = createSlice({
   },
 });
 
-export const { clearDataSignUp } = otpVerificationSlice.actions;
+export const { clearDataOtp } = otpVerificationSlice.actions;
 export default otpVerificationSlice.reducer;

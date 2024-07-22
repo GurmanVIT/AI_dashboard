@@ -10,6 +10,8 @@ import box from "../../assets/img/project.svg";
 import Documents from "../../assets/img/Documents.svg";
 import logout from "../../assets/img/logout.svg";
 import { googleLogout } from "@react-oauth/google";
+import { clearDataSignUp } from "../../redux/signupSlice";
+import { clearDataOtp } from "../../redux/OtpSlice";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = useState(true);
@@ -21,6 +23,8 @@ const Sidebar = () => {
 
   const logoutClick = () => {
     googleLogout();
+    clearDataSignUp();
+    clearDataOtp();
     navigation("/");
   };
 
@@ -33,13 +37,13 @@ const Sidebar = () => {
             Logotype
           </h1>
           {/* <div className="bars" onClick={toggleSidebar}>
-                        {isOpen ? <FaTimes /> : <FaBars />}
-                    </div> */}
+            {isOpen ? <FaTimes /> : <FaBars />}
+          </div> */}
         </div>
         <nav className="nav-menu">
           <ul>
             <li>
-              <NavLink to="/ProjectEdit" activeClassName="active">
+              <NavLink to="/Dashboard" activeClassName="active">
                 <img src={dashboard_icon} alt="dashboard_icon" />{" "}
                 <span>Dashboard</span>
               </NavLink>
@@ -66,7 +70,7 @@ const Sidebar = () => {
               </NavLink>
             </li>
             <li className="logout">
-              <div onClick={() => logoutClick()}>
+              <div onClick={() => logoutClick()} className="logout_div">
                 <img src={logout} alt="logout" /> <span>Logout</span>
               </div>
             </li>
