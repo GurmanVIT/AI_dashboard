@@ -1,6 +1,6 @@
 //BASE URL
 
-export const ApiBaseUrl = "http://206.189.142.23:8001";
+export const ApiBaseUrl = "https://api.youraiweb.com.au/";
 
 //Api Names
 export const signupApi = "/v1/user/login";
