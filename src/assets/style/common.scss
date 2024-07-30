@@ -45,19 +45,6 @@ input[type="number"] {
   align-items: $align-items;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  // text-align: center;
-}
-
-p {
-  // text-align: center;
-}
-
 a {
   text-decoration: none;
 }
@@ -89,5 +76,23 @@ input {
 
   @media($breakpoint_SM) {
     padding: 0 15px;
+  }
+}
+
+.previous_button {
+  background-color: #000;
+  color: #fff;
+  padding: 8px 16px;
+  border: 1px solid #000;
+  border-radius: 4px;
+}
+
+.pdf_head {
+  @media($breakpoint_LG) {
+    font-size: 26px;
+  }
+
+  @media($breakpoint_MD) {
+    font-size: 24px;
   }
 }
