@@ -17,9 +17,9 @@ import Documents from "./component/Documents/Documents";
 import ProjectEdit from "./component/ProjectEdit/ProjectEdit";
 import ProfileHeader from "./component/ProfileHeader/ProfileHeader";
 import ContactUs from "./component/ContactUs/ContactUs";
+import GoogleDrive from "./component/googleDrive";
 
 function App() {
-
   function SidebarCommon() {
     return (
       <>
@@ -30,7 +30,6 @@ function App() {
       </>
     );
   }
-
 
   return (
     <Provider store={store}>
@@ -43,7 +42,6 @@ function App() {
           <Route path="CreateProfile" element={<CreateProfile />} />
           <Route path="Sidebar" element={<Sidebar />} />
 
-
           <Route element={<SidebarCommon />}>
             <Route path="/Dashboard" element={<ProjectEdit />} />
             <Route path="YourAi" element={<YourAi />} />
@@ -54,6 +52,7 @@ function App() {
             <Route path="About" element={<About />} />
             <Route path="ProfileHeader" element={<ProfileHeader />} />
             <Route path="ContactUs" element={<ContactUs />} />
+            <Route path="GoogleDrive" element={<GoogleDrive />} />
           </Route>
         </Routes>
       </BrowserRouter>
