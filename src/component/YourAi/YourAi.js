@@ -148,7 +148,6 @@ function YourAi() {
             </div>
           ))}
       </div>
-
       <div className="input-area">
         <img src={add_circle} alt="add_circle" className="add_circle" onClick={() => navigation('/PDFViewer')} />
         <input
